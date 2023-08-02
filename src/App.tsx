@@ -1,35 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import GlobalStyle from "./styles/globalStyles";
+import { ThemeProvider } from "styled-components";
+import theme from "./theme";
+import { Theme } from "./interfaces/theme";
+import Avatar from "./components/Avatar";
+import Sidebar from "./components/Sidebar";
+import { AppLayout } from "./styles/app";
+import * as React from "react";
+import { AvatarValues } from "./interfaces/avatar";
+import { MouthType } from "./interfaces/mouth";
+import { EyeType } from "./interfaces/eye";
+
+export const AvatarContext = React.createContext<AvatarValues | null>(null);
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentTheme, setCurrentTheme] = useState<Theme>("dark");
+
+  const defaultAvatarValues = {
+    wrapperShape: "square",
+    background: { color: "#ffffff" },
+    widgets: {
+      skin: {
+        shape: "base",
+        fillColor: "#ff0000",
+      },
+      head: {
+        shape: "hihay",
+        fillColor: "#ff0000",
+      },
+      eyes: {
+        shape: "apathetic" as EyeType,
+      },
+      mouth: {
+        shape: "confused" as MouthType,
+      },
+      clothes: {
+        shape: "clothes",
+        color: "#00ff00",
+      },
+    },
+  };
+
+  const changeTheme = () => {
+    setCurrentTheme(currentTheme === "light" ? "dark" : "light");
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ThemeProvider theme={theme[currentTheme]}>
+        <GlobalStyle />
+        <AvatarContext.Provider value={defaultAvatarValues}>
+          <AppLayout>
+            <Avatar />
+            <Sidebar />
+          </AppLayout>
+        </AvatarContext.Provider>
+      </ThemeProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
