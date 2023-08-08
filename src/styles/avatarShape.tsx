@@ -5,8 +5,8 @@ export interface BaseShapeProps {
 }
 
 const BaseShape = styled.div<BaseShapeProps>`
-  height: 30px;
-  width: 30px;
+  height: 24px;
+  width: 24px;
   background-color: ${(props) => (props.selected ? "#303961" : "gray")};
   margin-right: 16px;
   cursor: pointer;

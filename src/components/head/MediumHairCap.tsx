@@ -4,13 +4,13 @@ import { AvatarPart } from "../../styles/avatar";
 const MediumHairCap = () => {
   return (
     <AvatarPart
-      width="320"
-      height="320"
-      viewBox="0 0 320 320"
+      width="360"
+      height="360"
+      viewBox="0 -60 320 320"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_5_4784)">
+      <g clipPath="url(#clip0_5_4784)">
         <path
           d="M214.7 152.91C213.57 148.41 211.83 143.57 210.2 138.37C210.2 138.37 209.19 139.53 205.98 140.34C202.77 141.15 199.58 140.44 199.58 140.44L199.11 142.77C199.11 159.31 187.08 170.27 187.08 170.27V187.05C207.06 187.6 220.82 177.13 214.72 152.91H214.7Z"
           fill="black"

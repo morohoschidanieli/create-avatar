@@ -8,7 +8,7 @@ import Simple from "../eyes/Simple";
 import Sunglasses from "../eyes/Sunglasses";
 
 const Eyes = () => {
-  return <Sunglasses />;
+  return <Glasses />;
 };
 
 export default Eyes;

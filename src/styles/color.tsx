@@ -10,8 +10,8 @@ export const ColorWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  width: 50px;
+  height: 38px;
+  width: 38px;
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
@@ -22,8 +22,8 @@ export const CenterColor = styled.div<ColorProps>`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   transition: all 0.2s;
   box-shadow: ${(props) =>
     props.selected
@@ -33,11 +33,11 @@ export const CenterColor = styled.div<ColorProps>`
   &:before {
     display: block;
     content: "";
-    width: 22px;
-    height: 21px;
+    width: 18px;
+    height: 18px;
 
     background-color: ${(props) => (props.color ? props.color : "gray")};
-    border: 4px solid #1f252a;
+    border: 4px solid #1d2227;
     box-shadow: ${(props) =>
       props.selected ? "inset 0px 0px 0px 3px " + props.color : "gray"};
     border-radius: 50%;

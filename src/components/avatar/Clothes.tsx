@@ -8,7 +8,7 @@ import SmileTShirt from "../clothes/SmileTShirt";
 import TShirt from "../clothes/TShirt";
 
 const Clothes = () => {
-  return <TShirt />;
+  return <SmileTShirt />;
 };
 
 export default Clothes;

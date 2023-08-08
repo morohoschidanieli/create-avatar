@@ -1,12 +1,14 @@
 import * as React from "react";
 import { AvatarPart } from "../../styles/avatar";
+import { AvatarProps } from "../../interfaces/avatar";
 
-const Bread1 = () => {
+const Bread1 = (props: AvatarProps) => {
   return (
     <AvatarPart
-      width="320"
-      height="320"
-      viewBox="0 0 320 320"
+      width="360"
+      height="360"
+      style={props.style}
+      viewBox="0 -60 320 320"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

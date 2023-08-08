@@ -33,3 +33,7 @@ export interface AvatarValues {
     };
   };
 }
+
+export interface AvatarProps {
+  style?: React.CSSProperties;
+}

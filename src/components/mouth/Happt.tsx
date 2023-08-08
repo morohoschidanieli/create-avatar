@@ -1,12 +1,14 @@
 import * as React from "react";
 import { AvatarPart } from "../../styles/avatar";
+import { AvatarProps } from "../../interfaces/avatar";
 
-const Happt = () => {
+const Happt = (props: AvatarProps) => {
   return (
     <AvatarPart
-      width="320"
-      height="320"
-      viewBox="0 0 320 320"
+      width="360"
+      height="360"
+      style={props.style}
+      viewBox="0 -60 320 320"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -24,9 +26,9 @@ const Happt = () => {
           width="328"
           height="328"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"

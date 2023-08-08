@@ -1,24 +1,26 @@
 import * as React from "react";
 import { AvatarPart } from "../../styles/avatar";
+import { AvatarProps } from "../../interfaces/avatar";
 
-const Glasses = () => {
+const Glasses = (props: AvatarProps) => {
   return (
     <AvatarPart
-      width="320"
-      height="320"
-      viewBox="0 0 320 320"
+      width="360"
+      height="360"
+      style={props.style}
+      viewBox="0 -60 320 320"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         d="M132 123L129.5 115.5C131.333 115 136.6 114 143 114C149.4 114 154.667 116 156.5 117C156.5 119.667 156.4 125.5 156 127.5C155.5 130 150.5 135 142 134.5C135.2 134.1 132.5 126.667 132 123Z"
         fill="white"
-        fill-opacity="0.35"
+        fillOpacity="0.35"
       />
       <path
         d="M192.5 123L195 115.5C193.167 115 187.9 114 181.5 114C175.1 114 169.833 116 168 117C168 119.667 168.1 125.5 168.5 127.5C169 130 174 135 182.5 134.5C189.3 134.1 192 126.667 192.5 123Z"
         fill="white"
-        fill-opacity="0.35"
+        fillOpacity="0.35"
       />
       <path
         d="M144.45 127.84C146.825 127.84 148.75 125.472 148.75 122.55C148.75 119.628 146.825 117.26 144.45 117.26C142.075 117.26 140.15 119.628 140.15 122.55C140.15 125.472 142.075 127.84 144.45 127.84Z"

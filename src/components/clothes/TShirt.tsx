@@ -1,16 +1,18 @@
 import * as React from "react";
 import { AvatarPart } from "../../styles/avatar";
+import { AvatarProps } from "../../interfaces/avatar";
 
-const TShirt = () => {
+const TShirt = (props: AvatarProps) => {
   return (
     <AvatarPart
-      width="320"
-      height="320"
-      viewBox="0 0 320 320"
+      width="360"
+      height="360"
+      style={props.style}
+      viewBox="0 -60 320 320"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_9_7826)">
+      <g clipPath="url(#clip0_9_7826)">
         <path
           d="M263 267.53H57.55C62.91 250.19 82 218.64 103.87 212.6C114.71 209.62 122.43 205.67 127.65 202.24C128.22 206.95 132.42 225.51 163.49 225.51C176.24 225.51 185.68 222.33 191.53 216.04C196.05 211.18 197.13 206.06 197.35 203.21C202.55 206.42 209.81 209.92 219.54 212.6C242.05 218.81 260.63 251.08 263 267.53Z"
           fill="#31333A"

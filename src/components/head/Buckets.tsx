@@ -4,9 +4,9 @@ import { AvatarPart } from "../../styles/avatar";
 const Buckets = () => {
   return (
     <AvatarPart
-      width="320"
-      height="320"
-      viewBox="0 0 320 320"
+      width="360"
+      height="360"
+      viewBox="0 -60 320 320"
       fill="#ffff00"
       xmlns="http://www.w3.org/2000/svg"
     >

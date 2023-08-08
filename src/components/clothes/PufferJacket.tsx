@@ -1,16 +1,18 @@
 import * as React from "react";
 import { AvatarPart } from "../../styles/avatar";
+import { AvatarProps } from "../../interfaces/avatar";
 
-const PufferJacket = () => {
+const PufferJacket = (props: AvatarProps) => {
   return (
     <AvatarPart
-      width="320"
-      height="320"
-      viewBox="0 0 320 320"
+      width="360"
+      height="360"
+      style={props.style}
+      viewBox="0 -60 320 320"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_9_7796)">
+      <g clipPath="url(#clip0_9_7796)">
         <path
           d="M197.03 223.63C198.25 223.63 199.25 224.62 199.25 225.84C199.25 227.06 198.25 228.06 197.03 228.06H182.11C180.89 228.06 179.9 227.07 179.9 225.84C179.9 224.61 180.89 223.63 182.11 223.63H197.03Z"
           fill="#F4FC9B"

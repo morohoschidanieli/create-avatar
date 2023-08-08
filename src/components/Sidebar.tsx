@@ -1,6 +1,10 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useContext, SetStateAction } from "react";
 import {
+  SidebarAvatarPart,
+  SidebarAvatarParts,
+  SidebarBodyColor,
+  SidebarItemColor,
   SidebarLayout,
   ToggleSidebarButton,
   ToggleSidebarLayout,
@@ -10,11 +14,39 @@ import {
   faArrowRight,
   faArrowLeft,
   faArrowDown,
+  faChevronRight,
+  faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 import SidebarItem from "./SidebarItem";
 
 import { Circle, Rounded, Square } from "../styles/avatarShape";
 import Color from "./Color";
+import Face from "./face/Face";
+import Apathetic from "./eyes/Apathetic";
+import Glasses from "./eyes/Glasses";
+import Heart from "./eyes/Heart";
+import Mini from "./eyes/Mini";
+import Opened from "./eyes/Opened";
+import Simple from "./eyes/Simple";
+import Sunglasses from "./eyes/Sunglasses";
+
+import ApatheticMouth from "./mouth/ApatheticMouth";
+import Bread1 from "./mouth/Bread1";
+import Bread3 from "./mouth/Bread3";
+import Confused from "./mouth/Confused";
+import Happt from "./mouth/Happt";
+import LongBread from "./mouth/LongBread";
+import Meh from "./mouth/Meh";
+import Mostach from "./mouth/Mostach";
+import Hoodie from "./clothes/Hoodie";
+import Overall from "./clothes/Overall";
+import OverShirt from "./clothes/Overshirt";
+import OverShirtSecond from "./clothes/OvershirtSecond";
+import PufferJacket from "./clothes/PufferJacket";
+import SmileTShirt from "./clothes/SmileTShirt";
+import TShirt from "./clothes/TShirt";
+import { AvatarContext } from "../App";
+import { AvatarValues } from "../interfaces/avatar";
 
 const colors = [
   { color: "#FF8F7A" },
@@ -44,19 +76,71 @@ const headColors = [
   { color: "#9C6358" },
 ];
 
+const eyeComponents = [
+  Apathetic,
+  Glasses,
+  Heart,
+  Mini,
+  Opened,
+  Simple,
+  Sunglasses,
+];
+
+const mouthComponents = [
+  ApatheticMouth,
+  Bread1,
+  Bread3,
+  Confused,
+  Happt,
+  LongBread,
+  Meh,
+  Mostach,
+];
+
+const clothesComponents = [
+  Hoodie,
+  Overall,
+  OverShirt,
+  OverShirtSecond,
+  PufferJacket,
+  SmileTShirt,
+  TShirt,
+];
+
 const Sidebar = () => {
+  const context = useContext(AvatarContext);
+  const avatarData = context?.[0];
+  const setAvatarDate = context?.[1];
   const [show, setShow] = useState(false);
-  const [backgroundColor, setBackgroundColor] = useState(colors[0].color);
+
   const [expendBodyColor, setExpendBodyColor] = useState(false);
   const [expendClothesColor, setExpendClothesColor] = useState(false);
-  const [selectedShape, setSelectedShape] = useState("Circle");
 
   const handleShapeSelect = (shape: string) => {
-    setSelectedShape(shape);
+    setAvatarDate?.((prevAvatarData) => ({
+      ...prevAvatarData,
+      wrapperShape: shape,
+    }));
   };
 
   const handleBackgroundColor = (color: string) => {
-    setBackgroundColor(color);
+    setAvatarDate?.((prevAvatarData) => ({
+      ...prevAvatarData,
+      background: { color },
+    }));
+  };
+
+  const handleBodyColor = (color: string) => {
+    setAvatarDate?.((prevAvatarData) => ({
+      ...prevAvatarData,
+      widgets: {
+        ...prevAvatarData.widgets,
+        skin: {
+          ...prevAvatarData.widgets.skin,
+          fillColor: color,
+        },
+      },
+    }));
   };
 
   const toggleBodyColorExpend = () => {
@@ -85,18 +169,18 @@ const Sidebar = () => {
             <>
               <Circle
                 title="Circle"
-                selected={selectedShape === "Circle"}
-                onClick={() => handleShapeSelect("Circle")}
+                selected={avatarData?.wrapperShape === "circle"}
+                onClick={() => handleShapeSelect("circle")}
               />
               <Rounded
                 title="Rounded"
-                selected={selectedShape === "Rounded"}
-                onClick={() => handleShapeSelect("Rounded")}
+                selected={avatarData?.wrapperShape === "rounded"}
+                onClick={() => handleShapeSelect("rounded")}
               />
               <Square
                 title="Square"
-                selected={selectedShape === "Square"}
-                onClick={() => handleShapeSelect("Square")}
+                selected={avatarData?.wrapperShape === "square"}
+                onClick={() => handleShapeSelect("square")}
               />
             </>
           </SidebarItem>
@@ -106,40 +190,66 @@ const Sidebar = () => {
                 <Color
                   key={color.color}
                   color={color.color}
-                  selected={backgroundColor === color.color}
+                  selected={avatarData?.background.color === color.color}
                 />
               </div>
             ))}
           </SidebarItem>
           <SidebarItem title="Head">
-            <div>
-              <h4
-                style={{ marginBottom: "0" }}
-                onClick={() => toggleBodyColorExpend()}
-              >
+            <div style={{ cursor: "pointer" }}>
+              <SidebarItemColor onClick={() => toggleBodyColorExpend()}>
                 <FontAwesomeIcon
-                  icon={expendBodyColor ? faArrowDown : faArrowRight}
+                  icon={expendBodyColor ? faAngleDown : faChevronRight}
                   style={{ marginRight: "10px" }}
                 />
                 colors
-              </h4>
+              </SidebarItemColor>
               {expendBodyColor && (
-                <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <SidebarBodyColor>
                   {headColors.map((color) => (
-                    <div onClick={() => handleBackgroundColor(color.color)}>
+                    <div onClick={() => handleBodyColor(color.color)}>
                       <Color
                         key={color.color}
                         color={color.color}
-                        selected={backgroundColor === color.color}
+                        selected={
+                          avatarData?.widgets.skin.fillColor === color.color
+                        }
                       />
                     </div>
                   ))}
-                </div>
+                </SidebarBodyColor>
               )}
+              <SidebarAvatarParts>
+                <SidebarAvatarPart>
+                  <Face style={{ width: "100px", height: "100px" }} />
+                </SidebarAvatarPart>
+              </SidebarAvatarParts>
             </div>
           </SidebarItem>
-          <SidebarItem title="Eyes">wer</SidebarItem>
-          <SidebarItem title="Mouth">wer</SidebarItem>
+          <SidebarItem title="Eyes">
+            <div style={{ cursor: "pointer" }}>
+              <SidebarAvatarParts>
+                {eyeComponents.map((EyeComponent) => (
+                  <SidebarAvatarPart active={true}>
+                    <EyeComponent style={{ width: "100px", height: "100px" }} />
+                  </SidebarAvatarPart>
+                ))}
+              </SidebarAvatarParts>
+            </div>
+          </SidebarItem>
+          <SidebarItem title="Mouth">
+            <div style={{ cursor: "pointer" }}>
+              <SidebarAvatarParts>
+                {mouthComponents.map((MouthComponents) => (
+                  <SidebarAvatarPart>
+                    <MouthComponents
+                      style={{ width: "100px", height: "100px" }}
+                    />
+                  </SidebarAvatarPart>
+                ))}
+              </SidebarAvatarParts>
+            </div>
+          </SidebarItem>
           <SidebarItem title="Clothes">
             <div>
               <h4
@@ -159,12 +269,26 @@ const Sidebar = () => {
                       <Color
                         key={color.color}
                         color={color.color}
-                        selected={backgroundColor === color.color}
+                        selected={avatarData?.background.color === color.color}
                       />
                     </div>
                   ))}
                 </div>
               )}
+              <div style={{ cursor: "pointer" }}>
+                <SidebarAvatarParts>
+                  {clothesComponents.map((ClotheComponent) => (
+                    <SidebarAvatarPart>
+                      <ClotheComponent
+                        style={{
+                          width: "100px",
+                          height: "100px",
+                        }}
+                      />
+                    </SidebarAvatarPart>
+                  ))}
+                </SidebarAvatarParts>
+              </div>
             </div>
           </SidebarItem>
         </SidebarLayout>

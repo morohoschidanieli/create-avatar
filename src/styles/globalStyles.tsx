@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import Rubik from "../fonts/Rubik/Rubik-Medium.ttf";
+import Rubik from "../assets/fonts/Rubik/Rubik-Medium.ttf";
 
 const GlobalStyle = createGlobalStyle`
     @font-face {

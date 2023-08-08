@@ -1,13 +1,17 @@
 import { styled } from "styled-components";
 
+interface SidebarAvatarPartProps {
+  active: Boolean;
+}
+
 export const SidebarLayout = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   background-color: transparent;
-  width: 520px;
-  padding: 30px;
+  width: 420px;
+  padding: 20px;
   max-height: 100vh;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -27,8 +31,8 @@ export const ToggleSidebarLayout = styled.div`
 `;
 
 export const ToggleSidebarButton = styled.button`
-  height: 100px;
-  width: 24px;
+  height: 70px;
+  width: 20px;
   border: 0px;
   cursor: pointer;
   -webkit-border-top-left-radius: 20px;
@@ -50,12 +54,12 @@ export const SidebarItemLayout = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  padding: 30px;
+  padding: 20px;
   color: white;
   flex-wrap: wrap;
 `;
 
-export const SidebarItemHeader = styled.h3`
+export const SidebarItemHeader = styled.h4`
   width: 100%;
 `;
 
@@ -64,7 +68,39 @@ export const SidebarItemContent = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
-  padding: 20px 0;
+  width: calc(100% - 11px);
+  flex-wrap: wrap;
+`;
+
+export const SidebarAvatarParts = styled.div`
+  display: inline-flex;
+  flex-wrap: wrap;
+`;
+
+export const SidebarAvatarPart = styled.div<SidebarAvatarPartProps>`
+  position: relative;
+  background-color: ${(props) => (props.active ? "#2c323a" : "#44484c")};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  margin: 4px;
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #44484c;
+  }
+`;
+
+export const SidebarItemColor = styled.h4`
+  margin-bottom: 0;
+`;
+
+export const SidebarBodyColor = styled.div`
+  display: flex;
   flex-wrap: wrap;
 `;
