@@ -9,6 +9,10 @@ export interface AvatarPropsInterface {
   skin: string;
 }
 
+export interface AvatarPartProps {
+  type: string;
+}
+
 export interface AvatarValues {
   wrapperShape: string;
   background: { color: string };
@@ -36,4 +40,12 @@ export interface AvatarValues {
 
 export interface AvatarProps {
   style?: React.CSSProperties;
+}
+
+export interface SkinProps extends AvatarProps {
+  fillColor: string;
+}
+
+export interface SkinProps2 extends AvatarPartProps {
+  fillColor: string;
 }

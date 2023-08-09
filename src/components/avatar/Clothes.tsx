@@ -1,14 +1,18 @@
+/* React */
 import * as React from "react";
-import Hoodie from "../clothes/Hoodie";
-import Overall from "../clothes/Overall";
-import OverShirt from "../clothes/Overshirt";
-import OverShirtSecond from "../clothes/OvershirtSecond";
-import PufferJacket from "../clothes/PufferJacket";
-import SmileTShirt from "../clothes/SmileTShirt";
-import TShirt from "../clothes/TShirt";
 
-const Clothes = () => {
-  return <SmileTShirt />;
+/* Collection */
+import ClothesCollection from "../clothes/ClothesCollection";
+
+/* Interfaces */
+import { AvatarPartProps } from "../../interfaces/avatar";
+
+const Clothes = ({ type }: AvatarPartProps) => {
+  const Cloth = ClothesCollection.find(
+    (clouthCollection) => clouthCollection.name === type
+  );
+
+  return <>{Cloth ? <Cloth.component /> : <div>Error</div>}</>;
 };
 
 export default Clothes;

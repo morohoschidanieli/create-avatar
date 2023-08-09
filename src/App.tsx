@@ -1,44 +1,29 @@
-import { Dispatch, SetStateAction, useState } from "react";
+/* React */
+import * as React from "react";
+import { useState } from "react";
+
+/* Global style */
 import GlobalStyle from "./styles/globalStyles";
+
+/* Styles */
+import { AppLayout } from "./styles/app";
+
+/* Theme Provider */
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
-import { Theme } from "./interfaces/theme";
+
+/* Components */
 import Avatar from "./components/Avatar";
 import Sidebar from "./components/Sidebar";
-import { AppLayout } from "./styles/app";
-import * as React from "react";
+import Code from "./components/Code";
+
+/* Interfaces */
+import { Theme } from "./interfaces/theme";
 import { AvatarValues } from "./interfaces/avatar";
-import { MouthType } from "./interfaces/mouth";
-import { EyeType } from "./interfaces/eye";
 
-const avatarDataInitialValue: AvatarValues = {
-  wrapperShape: "circle",
-  background: { color: "#FF8F7A" },
-  widgets: {
-    skin: {
-      shape: "base",
-      fillColor: "#F8C9B6",
-    },
-    head: {
-      shape: "hihay",
-      fillColor: "#ff0000",
-    },
-    eyes: {
-      shape: "apathetic" as EyeType,
-    },
-    mouth: {
-      shape: "confused" as MouthType,
-    },
-    clothes: {
-      shape: "clothes",
-      color: "#00ff00",
-    },
-  },
-};
-
-export const AvatarContext = React.createContext<
-  null | [AvatarValues, Dispatch<SetStateAction<AvatarValues>>]
->(null);
+/* Context */
+import { AvatarContext } from "./context/AvatarContext";
+import { avatarDataInitialValue } from "./context/initialValues";
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState<Theme>("dark");
@@ -52,17 +37,16 @@ function App() {
   // };
 
   return (
-    <>
-      <ThemeProvider theme={theme[currentTheme]}>
-        <GlobalStyle />
-        <AvatarContext.Provider value={[avatarData, setAvatarData]}>
-          <AppLayout>
-            <Avatar />
-            <Sidebar />
-          </AppLayout>
-        </AvatarContext.Provider>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme[currentTheme]}>
+      <GlobalStyle />
+      <AvatarContext.Provider value={[avatarData, setAvatarData]}>
+        <AppLayout>
+          {/* <Code /> */}
+          <Avatar />
+          <Sidebar />
+        </AppLayout>
+      </AvatarContext.Provider>
+    </ThemeProvider>
   );
 }
 

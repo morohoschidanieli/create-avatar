@@ -1,5 +1,8 @@
+/* React */
 import * as React from "react";
-import { useState, useContext, SetStateAction } from "react";
+import { useState, useContext } from "react";
+
+/* Font Awesome */
 import {
   SidebarAvatarPart,
   SidebarAvatarParts,
@@ -10,6 +13,8 @@ import {
   ToggleSidebarLayout,
 } from "../styles/sidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+/* Icons */
 import {
   faArrowRight,
   faArrowLeft,
@@ -17,95 +22,28 @@ import {
   faChevronRight,
   faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
+
+/* Components */
 import SidebarItem from "./SidebarItem";
-
-import { Circle, Rounded, Square } from "../styles/avatarShape";
 import Color from "./Color";
+
+/* Styles */
+import { Circle, Rounded, Square } from "../styles/avatarShape";
+
+/* Contenxt */
+import { AvatarContext } from "../context/AvatarContext";
+
 import Face from "./face/Face";
-import Apathetic from "./eyes/Apathetic";
-import Glasses from "./eyes/Glasses";
-import Heart from "./eyes/Heart";
-import Mini from "./eyes/Mini";
-import Opened from "./eyes/Opened";
-import Simple from "./eyes/Simple";
-import Sunglasses from "./eyes/Sunglasses";
 
-import ApatheticMouth from "./mouth/ApatheticMouth";
-import Bread1 from "./mouth/Bread1";
-import Bread3 from "./mouth/Bread3";
-import Confused from "./mouth/Confused";
-import Happt from "./mouth/Happt";
-import LongBread from "./mouth/LongBread";
-import Meh from "./mouth/Meh";
-import Mostach from "./mouth/Mostach";
-import Hoodie from "./clothes/Hoodie";
-import Overall from "./clothes/Overall";
-import OverShirt from "./clothes/Overshirt";
-import OverShirtSecond from "./clothes/OvershirtSecond";
-import PufferJacket from "./clothes/PufferJacket";
-import SmileTShirt from "./clothes/SmileTShirt";
-import TShirt from "./clothes/TShirt";
-import { AvatarContext } from "../App";
-import { AvatarValues } from "../interfaces/avatar";
+/* Collections */
+import ClothesCollection from "./clothes/ClothesCollection";
+import EyeCollection from "./eyes/EyeCollection";
+import MouthCollection from "./mouth/MouthCollection";
 
-const colors = [
-  { color: "#FF8F7A" },
-  { color: "#8AFDE4" },
-  { color: "#FFEA8F" },
-  { color: "#95A9FF" },
-  { color: "#FF9DCA" },
-  { color: "#8AFE7A" },
-  { color: "#FF9DE5" },
-  { color: "#8DF4FF" },
-  { color: "#FFB57A" },
-  { color: "#95A2FF" },
-  { color: "#F491FF" },
-  { color: "#8AFF97" },
-  { color: "#FF9FAB" },
-  { color: "#8AFFC9" },
-  { color: "#E491FF" },
-  { color: "#8AFF56" },
-  { color: "#FF9FD9" },
-];
-
-const headColors = [
-  { color: "#F8D9CE" },
-  { color: "#F8C9B6" },
-  { color: "#DEB3A2" },
-  { color: "#C89583" },
-  { color: "#9C6358" },
-];
-
-const eyeComponents = [
-  Apathetic,
-  Glasses,
-  Heart,
-  Mini,
-  Opened,
-  Simple,
-  Sunglasses,
-];
-
-const mouthComponents = [
-  ApatheticMouth,
-  Bread1,
-  Bread3,
-  Confused,
-  Happt,
-  LongBread,
-  Meh,
-  Mostach,
-];
-
-const clothesComponents = [
-  Hoodie,
-  Overall,
-  OverShirt,
-  OverShirtSecond,
-  PufferJacket,
-  SmileTShirt,
-  TShirt,
-];
+/* Colors */
+import { backgroundColor } from "../styles/colors/backgroundColors";
+import { headColors } from "../styles/colors/headColors";
+import HeadCollection from "./head/HeadCollection";
 
 const Sidebar = () => {
   const context = useContext(AvatarContext);
@@ -138,6 +76,22 @@ const Sidebar = () => {
         skin: {
           ...prevAvatarData.widgets.skin,
           fillColor: color,
+        },
+      },
+    }));
+  };
+
+  const handleWidgetType = (
+    widget: "skin" | "head" | "eyes" | "mouth" | "clothes",
+    type: string
+  ) => {
+    setAvatarDate?.((prevAvatarData) => ({
+      ...prevAvatarData,
+      widgets: {
+        ...prevAvatarData.widgets,
+        [widget]: {
+          ...prevAvatarData.widgets[widget],
+          shape: type,
         },
       },
     }));
@@ -184,8 +138,9 @@ const Sidebar = () => {
               />
             </>
           </SidebarItem>
+
           <SidebarItem title="Background Color">
-            {colors.map((color) => (
+            {backgroundColor.map((color) => (
               <div onClick={() => handleBackgroundColor(color.color)}>
                 <Color
                   key={color.color}
@@ -195,7 +150,7 @@ const Sidebar = () => {
               </div>
             ))}
           </SidebarItem>
-          <SidebarItem title="Head">
+          <SidebarItem title="Face">
             <div style={{ cursor: "pointer" }}>
               <SidebarItemColor onClick={() => toggleBodyColorExpend()}>
                 <FontAwesomeIcon
@@ -220,7 +175,7 @@ const Sidebar = () => {
                 </SidebarBodyColor>
               )}
               <SidebarAvatarParts>
-                <SidebarAvatarPart>
+                <SidebarAvatarPart active={true}>
                   <Face style={{ width: "100px", height: "100px" }} />
                 </SidebarAvatarPart>
               </SidebarAvatarParts>
@@ -229,9 +184,16 @@ const Sidebar = () => {
           <SidebarItem title="Eyes">
             <div style={{ cursor: "pointer" }}>
               <SidebarAvatarParts>
-                {eyeComponents.map((EyeComponent) => (
-                  <SidebarAvatarPart active={true}>
-                    <EyeComponent style={{ width: "100px", height: "100px" }} />
+                {EyeCollection.map((eyeCollection) => (
+                  <SidebarAvatarPart
+                    onClick={() => handleWidgetType("eyes", eyeCollection.name)}
+                    active={
+                      eyeCollection.name === avatarData?.widgets.eyes.shape
+                    }
+                  >
+                    <eyeCollection.component
+                      style={{ width: "100px", height: "100px" }}
+                    />
                   </SidebarAvatarPart>
                 ))}
               </SidebarAvatarParts>
@@ -240,9 +202,36 @@ const Sidebar = () => {
           <SidebarItem title="Mouth">
             <div style={{ cursor: "pointer" }}>
               <SidebarAvatarParts>
-                {mouthComponents.map((MouthComponents) => (
-                  <SidebarAvatarPart>
-                    <MouthComponents
+                {MouthCollection.map((mouthCollection) => (
+                  <SidebarAvatarPart
+                    active={
+                      mouthCollection.name === avatarData?.widgets.mouth.shape
+                    }
+                    onClick={() =>
+                      handleWidgetType("mouth", mouthCollection.name)
+                    }
+                  >
+                    <mouthCollection.component
+                      style={{ width: "100px", height: "100px" }}
+                    />
+                  </SidebarAvatarPart>
+                ))}
+              </SidebarAvatarParts>
+            </div>
+          </SidebarItem>
+          <SidebarItem title="Head">
+            <div style={{ cursor: "pointer" }}>
+              <SidebarAvatarParts active={false}>
+                {HeadCollection.map((headCollection) => (
+                  <SidebarAvatarPart
+                    active={
+                      headCollection.name === avatarData?.widgets.head.shape
+                    }
+                    onClick={() =>
+                      handleWidgetType("head", headCollection.name)
+                    }
+                  >
+                    <headCollection.component
                       style={{ width: "100px", height: "100px" }}
                     />
                   </SidebarAvatarPart>
@@ -277,9 +266,17 @@ const Sidebar = () => {
               )}
               <div style={{ cursor: "pointer" }}>
                 <SidebarAvatarParts>
-                  {clothesComponents.map((ClotheComponent) => (
-                    <SidebarAvatarPart>
-                      <ClotheComponent
+                  {ClothesCollection.map((clotheCollection) => (
+                    <SidebarAvatarPart
+                      active={
+                        clotheCollection.name ===
+                        avatarData?.widgets.clothes.shape
+                      }
+                      onClick={() =>
+                        handleWidgetType("clothes", clotheCollection.name)
+                      }
+                    >
+                      <clotheCollection.component
                         style={{
                           width: "100px",
                           height: "100px",

@@ -46,7 +46,7 @@ export const AvatarWrapper = styled.div<AvatarWrapperProps>`
 
 export const AvatarLayout = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -55,4 +55,18 @@ export const AvatarLayout = styled.div`
 
 export const AvatarPart = styled.svg`
   position: absolute;
+`;
+
+export const AvatarActions = styled.div`
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  margin: 50px 0;
+  padding: 10px;
+  color: white;
+  background-color: rgba(164, 178, 193, 0.15);
 `;

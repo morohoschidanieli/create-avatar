@@ -79,7 +79,7 @@ export const SidebarAvatarParts = styled.div`
 
 export const SidebarAvatarPart = styled.div<SidebarAvatarPartProps>`
   position: relative;
-  background-color: ${(props) => (props.active ? "#2c323a" : "#44484c")};
+  background-color: ${(props) => (props.active ? "#44484c" : "#2c323a")};
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,9 +1,11 @@
 import * as React from "react";
 import { AvatarPart } from "../../styles/avatar";
+import { AvatarProps } from "../../interfaces/avatar";
 
-const LongHair = () => {
+const LongHair = (props: AvatarProps) => {
   return (
     <AvatarPart
+      style={props.style}
       width="360"
       height="360"
       viewBox="0 -60 320 320"
