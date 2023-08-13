@@ -45,14 +45,25 @@ import { backgroundColor } from "../styles/colors/backgroundColors";
 import { headColors } from "../styles/colors/headColors";
 import HeadCollection from "./head/HeadCollection";
 
+/* Types */
+import { WidgetType } from "./types/widget";
+import toLowerCase from "../utils/toLowerCaseFirst";
+
+/* Avatar Shapes */
+const avatarShapes = [
+  { title: "Circle", component: Circle },
+  { title: "Rounded", component: Rounded },
+  { title: "Square", component: Square },
+];
+
 const Sidebar = () => {
   const context = useContext(AvatarContext);
+
   const avatarData = context?.[0];
   const setAvatarDate = context?.[1];
-  const [show, setShow] = useState(false);
 
+  const [show, setShow] = useState(false);
   const [expendBodyColor, setExpendBodyColor] = useState(false);
-  const [expendClothesColor, setExpendClothesColor] = useState(false);
 
   const handleShapeSelect = (shape: string) => {
     setAvatarDate?.((prevAvatarData) => ({
@@ -81,10 +92,7 @@ const Sidebar = () => {
     }));
   };
 
-  const handleWidgetType = (
-    widget: "skin" | "head" | "eyes" | "mouth" | "clothes",
-    type: string
-  ) => {
+  const handleWidgetType = (widget: WidgetType, type: string) => {
     setAvatarDate?.((prevAvatarData) => ({
       ...prevAvatarData,
       widgets: {
@@ -99,10 +107,6 @@ const Sidebar = () => {
 
   const toggleBodyColorExpend = () => {
     setExpendBodyColor(!expendBodyColor);
-  };
-
-  const toggleClothesColorExpend = () => {
-    setExpendClothesColor(!expendClothesColor);
   };
 
   const toggleSidebar = () => {
@@ -121,21 +125,17 @@ const Sidebar = () => {
         <SidebarLayout>
           <SidebarItem title="Avatar Shape">
             <>
-              <Circle
-                title="Circle"
-                selected={avatarData?.wrapperShape === "circle"}
-                onClick={() => handleShapeSelect("circle")}
-              />
-              <Rounded
-                title="Rounded"
-                selected={avatarData?.wrapperShape === "rounded"}
-                onClick={() => handleShapeSelect("rounded")}
-              />
-              <Square
-                title="Square"
-                selected={avatarData?.wrapperShape === "square"}
-                onClick={() => handleShapeSelect("square")}
-              />
+              {avatarShapes.map((avatarShape) => (
+                <avatarShape.component
+                  title={avatarShape.title}
+                  selected={
+                    avatarData?.wrapperShape === toLowerCase(avatarShape.title)
+                  }
+                  onClick={() =>
+                    handleShapeSelect(toLowerCase(avatarShape.title))
+                  }
+                />
+              ))}
             </>
           </SidebarItem>
 
@@ -175,8 +175,11 @@ const Sidebar = () => {
                 </SidebarBodyColor>
               )}
               <SidebarAvatarParts>
-                <SidebarAvatarPart active={true}>
-                  <Face style={{ width: "100px", height: "100px" }} />
+                <SidebarAvatarPart active={+true}>
+                  <Face
+                    fillColor={avatarData!.widgets.skin.fillColor}
+                    style={{ width: "100px", height: "100px" }}
+                  />
                 </SidebarAvatarPart>
               </SidebarAvatarParts>
             </div>
@@ -188,7 +191,7 @@ const Sidebar = () => {
                   <SidebarAvatarPart
                     onClick={() => handleWidgetType("eyes", eyeCollection.name)}
                     active={
-                      eyeCollection.name === avatarData?.widgets.eyes.shape
+                      +(eyeCollection.name === avatarData?.widgets.eyes.shape)
                     }
                   >
                     <eyeCollection.component
@@ -205,7 +208,9 @@ const Sidebar = () => {
                 {MouthCollection.map((mouthCollection) => (
                   <SidebarAvatarPart
                     active={
-                      mouthCollection.name === avatarData?.widgets.mouth.shape
+                      +(
+                        mouthCollection.name === avatarData?.widgets.mouth.shape
+                      )
                     }
                     onClick={() =>
                       handleWidgetType("mouth", mouthCollection.name)
@@ -225,7 +230,7 @@ const Sidebar = () => {
                 {HeadCollection.map((headCollection) => (
                   <SidebarAvatarPart
                     active={
-                      headCollection.name === avatarData?.widgets.head.shape
+                      +(headCollection.name === avatarData?.widgets.head.shape)
                     }
                     onClick={() =>
                       handleWidgetType("head", headCollection.name)
@@ -240,52 +245,29 @@ const Sidebar = () => {
             </div>
           </SidebarItem>
           <SidebarItem title="Clothes">
-            <div>
-              <h4
-                style={{ marginBottom: "0" }}
-                onClick={() => toggleClothesColorExpend()}
-              >
-                <FontAwesomeIcon
-                  icon={expendBodyColor ? faArrowDown : faArrowRight}
-                  style={{ marginRight: "10px" }}
-                />
-                colors
-              </h4>
-              {expendClothesColor && (
-                <div style={{ display: "flex", flexWrap: "wrap" }}>
-                  {headColors.map((color) => (
-                    <div onClick={() => handleBackgroundColor(color.color)}>
-                      <Color
-                        key={color.color}
-                        color={color.color}
-                        selected={avatarData?.background.color === color.color}
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
-              <div style={{ cursor: "pointer" }}>
-                <SidebarAvatarParts>
-                  {ClothesCollection.map((clotheCollection) => (
-                    <SidebarAvatarPart
-                      active={
+            <div style={{ cursor: "pointer" }}>
+              <SidebarAvatarParts>
+                {ClothesCollection.map((clotheCollection) => (
+                  <SidebarAvatarPart
+                    active={
+                      +(
                         clotheCollection.name ===
                         avatarData?.widgets.clothes.shape
-                      }
-                      onClick={() =>
-                        handleWidgetType("clothes", clotheCollection.name)
-                      }
-                    >
-                      <clotheCollection.component
-                        style={{
-                          width: "100px",
-                          height: "100px",
-                        }}
-                      />
-                    </SidebarAvatarPart>
-                  ))}
-                </SidebarAvatarParts>
-              </div>
+                      )
+                    }
+                    onClick={() =>
+                      handleWidgetType("clothes", clotheCollection.name)
+                    }
+                  >
+                    <clotheCollection.component
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                      }}
+                    />
+                  </SidebarAvatarPart>
+                ))}
+              </SidebarAvatarParts>
             </div>
           </SidebarItem>
         </SidebarLayout>

@@ -47,5 +47,5 @@ export interface SkinProps extends AvatarProps {
 }
 
 export interface SkinProps2 extends AvatarPartProps {
-  fillColor: string;
+  fillColor?: string;
 }
