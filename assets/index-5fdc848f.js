@@ -936,7 +936,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   background-color: transparent;
   width: 420px;
   padding: 20px;
-  max-height: 100vh;
+  max-height: 100%;
   overflow-y: hidden;
   overflow-x: hidden;
 
@@ -1035,7 +1035,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 
     body {
         width:100vw;
-        height:100vh;
+        height:100%;
         margin: 0;
         padding: 0;
         font-family: 'Rubik', sans-serif;
