@@ -925,7 +925,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   @media screen and (max-width: 850px) {
     position: absolute;
     right: 0;
-    height: 100vh;
+    height: 100%;
     width: auto;
   }
 `,Mv=iA.div`
