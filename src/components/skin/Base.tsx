@@ -1,11 +1,6 @@
-/* React */
 import * as React from "react";
-
-/* Styles */
-import { AvatarPart } from "../../styles/avatar";
-
-/* Interfaces */
-import { SkinProps } from "../../interfaces/avatar";
+import { AvatarPart } from "@styles/avatar";
+import { SkinProps } from "@interfaces/avatar";
 
 const Base = (props: SkinProps) => {
   return (

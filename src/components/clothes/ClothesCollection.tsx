@@ -1,10 +1,12 @@
-import Hoodie from "./Hoodie";
-import Overall from "./Overall";
-import OverShirt from "./Overshirt";
-import OverShirtSecond from "./OvershirtSecond";
-import PufferJacket from "./PufferJacket";
-import SmileTShirt from "./SmileTShirt";
-import TShirt from "./TShirt";
+import {
+  Hoodie,
+  OverShirt,
+  OverShirtSecond,
+  Overall,
+  PufferJacket,
+  SmileTShirt,
+  TShirt,
+} from "@components";
 
 const ClothesCollection = [
   { name: "hoodie", component: Hoodie },

@@ -18,8 +18,28 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["./"],
+      "@interfaces/*": ["./interfaces/*"],
+      "@styles/*": ["./styles/*"],
+      "@colors": ["styles/colors"],
+      "@context": ["context"],
+      "@components": ["components/index.tsx"],
+      "@avatar": ["components/avatar/index.tsx"],
+      "@clothes": ["components/clothes/index.tsx"],
+      "@eyes": ["components/eyes/index.tsx"],
+      "@face": ["components/face/index.tsx"],
+      "@head": ["components/head/index.tsx"],
+      "@mouth": ["components/mouth/index.tsx"],
+      "@skin": ["components/skin/index.tsx"],
+      "@utils": ["utils/index.tsx"],
+      "@constants": ["constants/index.tsx"],
+      "@theme": ["theme/index.tsx"]
+    }
   },
-  "include": ["src"],
+  "include": ["."],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

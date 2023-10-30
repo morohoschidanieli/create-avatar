@@ -3,8 +3,8 @@ import {
   SidebarItemContent,
   SidebarItemHeader,
   SidebarItemLayout,
-} from "../styles/sidebar";
-import { SidebarProps } from "../interfaces/sidebar";
+} from "@styles/sidebar";
+import { SidebarProps } from "@interfaces/sidebar";
 
 const SidebarItem = ({ title, children }: SidebarProps) => {
   return (

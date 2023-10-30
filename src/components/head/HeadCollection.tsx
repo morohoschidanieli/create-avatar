@@ -1,14 +1,16 @@
-import Beanie from "./Beanie";
-import Buckets from "./Buckets";
-import Cap from "./Cap";
-import CurlyHair from "./CurlyHair";
-import CurlyHairSecond from "./CurlyHairSecond";
-import Hair from "./Hair";
-import LongHair from "./LongHair";
-import LongHairBeanie from "./LongHairBeanie";
-import MediumHair from "./MediumHair";
-import MediumHairCap from "./MediumHairCap";
-import Mohawk from "./Mohawk";
+import {
+  Beanie,
+  Buckets,
+  Cap,
+  CurlyHair,
+  CurlyHairSecond,
+  Hair,
+  LongHair,
+  LongHairBeanie,
+  MediumHair,
+  MediumHairCap,
+  Mohawk,
+} from "@components";
 
 const HeadCollection = [
   { name: "beanie", component: Beanie },

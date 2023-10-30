@@ -1,8 +1,5 @@
-/* React */
 import * as React from "react";
-
-/* Interface */
-import { AvatarPartProps } from "../interfaces/avatar";
+import { AvatarPartProps } from "@interfaces/avatar";
 
 const generateAvatarPart = (collection: any[]) => {
   return ({ type }: AvatarPartProps) => {

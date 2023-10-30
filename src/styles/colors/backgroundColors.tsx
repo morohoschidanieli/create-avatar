@@ -1,4 +1,4 @@
-export const backgroundColor = [
+const backgroundColor = [
   { color: "#FF8F7A" },
   { color: "#8AFDE4" },
   { color: "#FFEA8F" },
@@ -17,3 +17,5 @@ export const backgroundColor = [
   { color: "#8AFF56" },
   { color: "#FF9FD9" },
 ];
+
+export default backgroundColor;

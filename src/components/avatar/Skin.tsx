@@ -1,11 +1,6 @@
-/* React */
 import * as React from "react";
-
-/* Collection */
-import SkinCollection from "../skin/SkinCollection";
-
-/* Interfaces */
-import { AvatarPartProps, SkinProps2 } from "../../interfaces/avatar";
+import { SkinCollection } from "@components";
+import { SkinProps2 } from "@interfaces/avatar";
 
 const Skin = ({ type, fillColor }: SkinProps2) => {
   const Skin = SkinCollection.find(
@@ -13,7 +8,7 @@ const Skin = ({ type, fillColor }: SkinProps2) => {
   );
 
   return (
-    <>{Skin ? <Skin.component fillColor={fillColor} /> : <div>Error</div>}</>
+    <>{Skin ? <Skin.component fillColor={fillColor!} /> : <div>Error</div>}</>
   );
 };
 

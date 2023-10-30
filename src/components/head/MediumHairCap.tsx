@@ -1,6 +1,7 @@
 import * as React from "react";
-import { AvatarPart } from "../../styles/avatar";
-import { AvatarProps } from "../../interfaces/avatar";
+import { AvatarPart } from "@styles/avatar";
+import { AvatarProps } from "@interfaces/avatar";
+import { HEAD_DEFAULT_COLOR } from "@constants";
 
 const MediumHairCap = (props: AvatarProps) => {
   return (
@@ -9,7 +10,6 @@ const MediumHairCap = (props: AvatarProps) => {
       width="360"
       height="360"
       viewBox="0 -60 320 320"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath="url(#clip0_5_4784)">
@@ -27,7 +27,7 @@ const MediumHairCap = (props: AvatarProps) => {
         />
         <path
           d="M143.41 50.85C142.65 51.11 123.56 56.3 116.54 79.92L115.48 89.09V102.28C115.48 102.28 111.34 108.77 117.1 112.32C122.86 115.87 127.61 118.47 138.56 107.91C149.51 97.36 159.15 97.31 159.15 97.31C159.15 97.31 171.94 98.53 183.36 111.78C183.36 111.78 192.66 118.22 202.82 111.19C202.82 111.19 207.91 106.64 202.82 101.03C202.82 101.03 203.84 82.48 198.25 70.44C192.66 58.4 179.49 51.29 168.62 49.42C168.62 49.42 170.7 42.09 159.14 41.24C147.58 40.38 149.66 49.24 149.66 49.24L143.39 50.84L143.41 50.85Z"
-          fill="#E7B431"
+          fill={props.fillColor || HEAD_DEFAULT_COLOR}
         />
         <path
           d="M203.82 102.29C203.13 102.29 202.57 101.73 202.57 101.04V89.1C202.57 67.7 185.26 50.28 163.99 50.28H156.31C135.03 50.28 117.73 67.69 117.73 89.1V101.04C117.73 101.73 117.17 102.29 116.48 102.29C115.79 102.29 115.23 101.73 115.23 101.04V89.1C115.23 66.32 133.66 47.78 156.31 47.78H163.99C186.64 47.78 205.07 66.32 205.07 89.1V101.04C205.07 101.73 204.51 102.29 203.82 102.29Z"
@@ -75,7 +75,7 @@ const MediumHairCap = (props: AvatarProps) => {
           <rect
             width="212.03"
             height="231.07"
-            fill="#E7B431"
+            fill={props.fillColor || HEAD_DEFAULT_COLOR}
             transform="translate(54 40)"
           />
         </clipPath>

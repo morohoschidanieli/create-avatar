@@ -1,10 +1,12 @@
-import Apathetic from "./Apathetic";
-import Glasses from "./Glasses";
-import Heart from "./Heart";
-import Mini from "./Mini";
-import Opened from "./Opened";
-import Simple from "./Simple";
-import Sunglasses from "./Sunglasses";
+import {
+  Apathetic,
+  Glasses,
+  Heart,
+  Mini,
+  Opened,
+  Simple,
+  Sunglasses,
+} from "@components";
 
 const EyeCollection = [
   { name: "apathetic", component: Apathetic },

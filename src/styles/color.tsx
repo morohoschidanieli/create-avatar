@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { extractRgbFromHex } from "../utils/hexToRgb";
+import extractRgbFromHex from "utils/hexToRgb";
 
 interface ColorProps {
   color: string;

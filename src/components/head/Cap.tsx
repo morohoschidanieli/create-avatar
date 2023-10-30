@@ -1,6 +1,7 @@
 import * as React from "react";
-import { AvatarPart } from "../../styles/avatar";
-import { AvatarProps } from "../../interfaces/avatar";
+import { AvatarPart } from "@styles/avatar";
+import { AvatarProps } from "@interfaces/avatar";
+import { HEAD_DEFAULT_COLOR } from "@constants";
 
 const Cap = (props: AvatarProps) => {
   return (
@@ -9,13 +10,12 @@ const Cap = (props: AvatarProps) => {
       width="360"
       height="360"
       viewBox="0 -60 320 320"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath="url(#clip0_5_4783)">
         <path
           d="M148.2 61.78C147.52 62.01 130.46 66.63 124.19 87.6L123.24 95.75V107.47C123.24 107.47 119.55 113.23 124.69 116.39C129.83 119.55 134.08 121.85 143.86 112.47C153.64 103.09 162.26 103.05 162.26 103.05C162.26 103.05 173.69 104.14 183.89 115.9C183.89 115.9 192.2 121.62 201.28 115.38C201.28 115.38 205.82 111.33 201.28 106.35C201.28 106.35 202.19 89.87 197.2 79.18C192.21 68.49 180.44 62.17 170.73 60.51C170.73 60.51 172.59 54 162.26 53.24C151.93 52.48 153.79 60.35 153.79 60.35L148.19 61.77L148.2 61.78Z"
-          fill="#E7B431"
+          fill={props.fillColor || HEAD_DEFAULT_COLOR}
         />
         <path
           d="M202.17 107.61C201.48 107.61 200.92 107.05 200.92 106.36V95.75C200.92 76.82 185.52 61.41 166.58 61.41H159.72C140.78 61.41 125.38 76.82 125.38 95.75V106.36C125.38 107.05 124.82 107.61 124.13 107.61C123.44 107.61 122.88 107.05 122.88 106.36V95.75C122.88 75.44 139.41 58.91 159.72 58.91H166.58C186.89 58.91 203.42 75.44 203.42 95.75V106.36C203.42 107.05 202.86 107.61 202.17 107.61Z"
@@ -63,7 +63,7 @@ const Cap = (props: AvatarProps) => {
           <rect
             width="212.03"
             height="216.12"
-            fill="#E7B431"
+            fill={props.fillColor || HEAD_DEFAULT_COLOR}
             transform="translate(54 52)"
           />
         </clipPath>

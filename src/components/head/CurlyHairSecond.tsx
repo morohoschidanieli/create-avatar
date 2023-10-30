@@ -1,6 +1,6 @@
 import * as React from "react";
-import { AvatarPart } from "../../styles/avatar";
-import { AvatarProps } from "../../interfaces/avatar";
+import { AvatarPart } from "@styles/avatar";
+import { AvatarProps } from "@interfaces/avatar";
 
 const CurlyHairSecond = (props: AvatarProps) => {
   return (
@@ -9,7 +9,6 @@ const CurlyHairSecond = (props: AvatarProps) => {
       width="360"
       height="360"
       viewBox="0 -60 320 320"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

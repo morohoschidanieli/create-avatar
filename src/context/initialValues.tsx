@@ -1,18 +1,23 @@
-import { AvatarValues } from "../interfaces/avatar";
-import { EyeType } from "../interfaces/eye";
-import { MouthType } from "../interfaces/mouth";
+import {
+  BACKGROUND_DEFAULT_COLOR,
+  HEAD_DEFAULT_COLOR,
+  SKIN_DEFAULT_COLOR,
+} from "@constants";
+import { AvatarValues } from "@interfaces/avatar";
+import { EyeType } from "@interfaces/eye";
+import { MouthType } from "@interfaces/mouth";
 
-export const avatarDataInitialValue: AvatarValues = {
+const avatarDataInitialValue: AvatarValues = {
   wrapperShape: "circle",
-  background: { color: "#FF8F7A" },
+  background: { color: BACKGROUND_DEFAULT_COLOR },
   widgets: {
     skin: {
       shape: "base",
-      fillColor: "#F8C9B6",
+      fillColor: SKIN_DEFAULT_COLOR,
     },
     head: {
       shape: "beanie",
-      fillColor: "#ff0000",
+      fillColor: HEAD_DEFAULT_COLOR,
     },
     eyes: {
       shape: "apathetic" as EyeType,
@@ -26,3 +31,5 @@ export const avatarDataInitialValue: AvatarValues = {
     },
   },
 };
+
+export default avatarDataInitialValue;

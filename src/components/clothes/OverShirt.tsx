@@ -1,6 +1,6 @@
 import * as React from "react";
-import { AvatarPart } from "../../styles/avatar";
-import { AvatarProps } from "../../interfaces/avatar";
+import { AvatarProps } from "@interfaces/avatar";
+import { AvatarPart } from "@styles/avatar";
 
 const OverShirt = (props: AvatarProps) => {
   return (

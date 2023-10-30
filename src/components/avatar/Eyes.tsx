@@ -1,11 +1,6 @@
-/* React */
 import * as React from "react";
-
-/* Collection */
-import EyeCollection from "../eyes/EyeCollection";
-
-/* Interfaces */
-import { AvatarPartProps } from "../../interfaces/avatar";
+import { EyeCollection } from "@components";
+import { AvatarPartProps } from "@interfaces/avatar";
 
 const Eyes = ({ type }: AvatarPartProps) => {
   const Eye = EyeCollection.find(

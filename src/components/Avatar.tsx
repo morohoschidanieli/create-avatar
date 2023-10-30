@@ -1,22 +1,10 @@
-/* React */
 import * as React from "react";
 import { useContext } from "react";
-
-/* Context */
-import { AvatarContext } from "../context/AvatarContext";
-
-/* Styles */
-import { AvatarActions, AvatarLayout, AvatarWrapper } from "../styles/avatar";
-import { Button } from "../styles/button";
-
-/* Components */
-import Skin from "./avatar/Skin";
-import Eyes from "./avatar/Eyes";
-import Mouth from "./avatar/Mouth";
-import Head from "./avatar/Head";
-import Clothes from "./avatar/Clothes";
-
-/* Font Awesome */
+import { AvatarActions, AvatarLayout, AvatarWrapper } from "@styles/avatar";
+import { Button } from "@styles/button";
+import { Clothes, Eyes, Head, Mouth, Skin } from "@components";
+import { downloadImage } from "@utils";
+import { AvatarContext } from "@context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCode,
@@ -24,11 +12,8 @@ import {
   faShuffle,
 } from "@fortawesome/free-solid-svg-icons";
 
-/* Utils */
-import downloadImage from "../utils/downloadImage";
-
 const buttonValues = [
-  { title: "Randon", icon: faShuffle },
+  { title: "Random", icon: faShuffle },
   { title: "Code", icon: faCode },
   { title: "Download", icon: faDownload, onClickEvent: downloadImage },
 ];
@@ -49,7 +34,7 @@ const Avatar = () => {
         <Skin type={skin.shape} fillColor={skin.fillColor} />
         <Eyes type={eyes.shape} />
         <Mouth type={mouth.shape} />
-        <Head type={head.shape} />
+        <Head type={head.shape} fillColor={head.fillColor} />
         <Clothes type={clothes.shape} />
       </AvatarWrapper>
       <AvatarActions>

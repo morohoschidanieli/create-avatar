@@ -1,37 +1,20 @@
-/* React */
 import * as React from "react";
 import { useState } from "react";
-
-/* Global style */
-import GlobalStyle from "./styles/globalStyles";
-
-/* Styles */
-import { AppLayout } from "./styles/app";
-
-/* Theme Provider */
 import { ThemeProvider } from "styled-components";
-import theme from "./theme";
-
-/* Components */
-import Avatar from "./components/Avatar";
-import Sidebar from "./components/Sidebar";
-import Code from "./components/Code";
-
-/* Interfaces */
-import { Theme } from "./interfaces/theme";
-import { AvatarValues } from "./interfaces/avatar";
-
-/* Context */
-import { AvatarContext } from "./context/AvatarContext";
-import { avatarDataInitialValue } from "./context/initialValues";
+import { Avatar, Sidebar } from "@components";
+import { AvatarContext, avatarDataInitialValue } from "@context";
+import { Theme } from "@interfaces/theme";
+import { AvatarValues } from "@interfaces/avatar";
+import GlobalStyle from "@styles/globalStyles";
+import { AppLayout } from "@styles/app";
+import theme from "@theme";
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState<Theme>("dark");
   const [avatarData, setAvatarData] = useState<AvatarValues>(
     avatarDataInitialValue
   );
-
-  console.log(avatarData);
+  console.log(setCurrentTheme);
   // const changeTheme = () => {
   //   setCurrentTheme(currentTheme === "light" ? "dark" : "light");
   // };

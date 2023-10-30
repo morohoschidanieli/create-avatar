@@ -1,27 +1,34 @@
-# React + TypeScript + Vite
+# Avatar Generator Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Generated Avatars](images/avatar_samples.png)
 
-Currently, two official plugins are available:
+This project provides a simple avatar generator that uses SVG components to create unique avatars. It's a fun and creative way to generate avatars for user profiles, chat applications, and more.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
 
-## Expanding the ESLint configuration
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Usage](#usage)
+- [SVG Components](#svg-components)
+  - [Circle Component](#circle-component)
+  - [Rectangle Component](#rectangle-component)
+  - [Triangle Component](#triangle-component)
+- [Designer](#designer)
+- [License](#license)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Getting Started
 
-- Configure the top-level `parserOptions` property like this:
+### Installation
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+To use the avatar generator, follow these steps:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone the repository: `git clone https://github.com/morohoschidanieli/create-avatar.git`
+2. Navigate to the project directory: `cd create-avatar`
+3. Install dependencies: `npm install`
+
+### Usage
+
+After installing the dependencies, you can generate avatars with the following command:
+
+```bash
+npm run dev

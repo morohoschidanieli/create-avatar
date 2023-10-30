@@ -1,6 +1,6 @@
 import * as React from "react";
-import { AvatarPart } from "../../styles/avatar";
-import { AvatarProps, SkinProps } from "../../interfaces/avatar";
+import { AvatarPart } from "@styles/avatar";
+import { SkinProps } from "@interfaces/avatar";
 
 const Face = (props: SkinProps) => {
   return (

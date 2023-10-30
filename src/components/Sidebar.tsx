@@ -1,8 +1,6 @@
-/* React */
 import * as React from "react";
 import { useState, useContext } from "react";
 
-/* Font Awesome */
 import {
   SidebarAvatarPart,
   SidebarAvatarParts,
@@ -13,12 +11,9 @@ import {
   ToggleSidebarLayout,
 } from "../styles/sidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-/* Icons */
 import {
   faArrowRight,
   faArrowLeft,
-  faArrowDown,
   faChevronRight,
   faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
@@ -27,27 +22,18 @@ import {
 import SidebarItem from "./SidebarItem";
 import Color from "./Color";
 
-/* Styles */
-import { Circle, Rounded, Square } from "../styles/avatarShape";
-
-/* Contenxt */
-import { AvatarContext } from "../context/AvatarContext";
-
-import Face from "./face/Face";
-
-/* Collections */
-import ClothesCollection from "./clothes/ClothesCollection";
-import EyeCollection from "./eyes/EyeCollection";
-import MouthCollection from "./mouth/MouthCollection";
-
-/* Colors */
-import { backgroundColor } from "../styles/colors/backgroundColors";
-import { headColors } from "../styles/colors/headColors";
-import HeadCollection from "./head/HeadCollection";
-
-/* Types */
+import {
+  ClothesCollection,
+  EyeCollection,
+  Face,
+  HeadCollection,
+  MouthCollection,
+} from "@components";
+import { Circle, Rounded, Square } from "@styles/avatarShape";
+import { AvatarContext } from "@context";
+import { backgroundColors, faceColors, headColors } from "@colors";
 import { WidgetType } from "./types/widget";
-import toLowerCase from "../utils/toLowerCaseFirst";
+import { toLowerCaseFirst } from "@utils";
 
 /* Avatar Shapes */
 const avatarShapes = [
@@ -64,6 +50,7 @@ const Sidebar = () => {
 
   const [show, setShow] = useState(false);
   const [expendBodyColor, setExpendBodyColor] = useState(false);
+  const [expendHeadColor, setExpendHeadColor] = useState(false);
 
   const handleShapeSelect = (shape: string) => {
     setAvatarDate?.((prevAvatarData) => ({
@@ -92,6 +79,19 @@ const Sidebar = () => {
     }));
   };
 
+  const handleHeadColor = (color: string) => {
+    setAvatarDate?.((prevAvatarData) => ({
+      ...prevAvatarData,
+      widgets: {
+        ...prevAvatarData.widgets,
+        head: {
+          ...prevAvatarData.widgets.head,
+          fillColor: color,
+        },
+      },
+    }));
+  };
+
   const handleWidgetType = (widget: WidgetType, type: string) => {
     setAvatarDate?.((prevAvatarData) => ({
       ...prevAvatarData,
@@ -107,6 +107,10 @@ const Sidebar = () => {
 
   const toggleBodyColorExpend = () => {
     setExpendBodyColor(!expendBodyColor);
+  };
+
+  const toggleHeadColorExpend = () => {
+    setExpendHeadColor(!expendHeadColor);
   };
 
   const toggleSidebar = () => {
@@ -127,12 +131,14 @@ const Sidebar = () => {
             <>
               {avatarShapes.map((avatarShape) => (
                 <avatarShape.component
+                  key={avatarShape.title}
                   title={avatarShape.title}
                   selected={
-                    avatarData?.wrapperShape === toLowerCase(avatarShape.title)
+                    avatarData?.wrapperShape ===
+                    toLowerCaseFirst(avatarShape.title)
                   }
                   onClick={() =>
-                    handleShapeSelect(toLowerCase(avatarShape.title))
+                    handleShapeSelect(toLowerCaseFirst(avatarShape.title))
                   }
                 />
               ))}
@@ -140,8 +146,11 @@ const Sidebar = () => {
           </SidebarItem>
 
           <SidebarItem title="Background Color">
-            {backgroundColor.map((color) => (
-              <div onClick={() => handleBackgroundColor(color.color)}>
+            {backgroundColors.map((color) => (
+              <div
+                key={color.color}
+                onClick={() => handleBackgroundColor(color.color)}
+              >
                 <Color
                   key={color.color}
                   color={color.color}
@@ -161,8 +170,11 @@ const Sidebar = () => {
               </SidebarItemColor>
               {expendBodyColor && (
                 <SidebarBodyColor>
-                  {headColors.map((color) => (
-                    <div onClick={() => handleBodyColor(color.color)}>
+                  {faceColors.map((color) => (
+                    <div
+                      key={color.color}
+                      onClick={() => handleBodyColor(color.color)}
+                    >
                       <Color
                         key={color.color}
                         color={color.color}
@@ -189,6 +201,7 @@ const Sidebar = () => {
               <SidebarAvatarParts>
                 {EyeCollection.map((eyeCollection) => (
                   <SidebarAvatarPart
+                    key={eyeCollection.name}
                     onClick={() => handleWidgetType("eyes", eyeCollection.name)}
                     active={
                       +(eyeCollection.name === avatarData?.widgets.eyes.shape)
@@ -207,6 +220,7 @@ const Sidebar = () => {
               <SidebarAvatarParts>
                 {MouthCollection.map((mouthCollection) => (
                   <SidebarAvatarPart
+                    key={mouthCollection.name}
                     active={
                       +(
                         mouthCollection.name === avatarData?.widgets.mouth.shape
@@ -226,9 +240,35 @@ const Sidebar = () => {
           </SidebarItem>
           <SidebarItem title="Head">
             <div style={{ cursor: "pointer" }}>
-              <SidebarAvatarParts active={false}>
+              <SidebarItemColor onClick={() => toggleHeadColorExpend()}>
+                <FontAwesomeIcon
+                  icon={expendHeadColor ? faAngleDown : faChevronRight}
+                  style={{ marginRight: "10px" }}
+                />
+                colors
+              </SidebarItemColor>
+              {expendHeadColor && (
+                <SidebarBodyColor>
+                  {headColors.map((color) => (
+                    <div
+                      key={color.color}
+                      onClick={() => handleHeadColor(color.color)}
+                    >
+                      <Color
+                        key={color.color}
+                        color={color.color}
+                        selected={
+                          avatarData?.widgets.head.fillColor === color.color
+                        }
+                      />
+                    </div>
+                  ))}
+                </SidebarBodyColor>
+              )}
+              <SidebarAvatarParts active={+false}>
                 {HeadCollection.map((headCollection) => (
                   <SidebarAvatarPart
+                    key={headCollection.name}
                     active={
                       +(headCollection.name === avatarData?.widgets.head.shape)
                     }
@@ -238,6 +278,7 @@ const Sidebar = () => {
                   >
                     <headCollection.component
                       style={{ width: "100px", height: "100px" }}
+                      fillColor={avatarData!.widgets.head.fillColor}
                     />
                   </SidebarAvatarPart>
                 ))}
@@ -249,6 +290,7 @@ const Sidebar = () => {
               <SidebarAvatarParts>
                 {ClothesCollection.map((clotheCollection) => (
                   <SidebarAvatarPart
+                    key={clotheCollection.name}
                     active={
                       +(
                         clotheCollection.name ===

@@ -1,11 +1,13 @@
-import ApatheticMouth from "./ApatheticMouth";
-import Bread1 from "./Bread1";
-import Bread3 from "./Bread3";
-import Confused from "./Confused";
-import Happt from "./Happt";
-import LongBread from "./LongBread";
-import Meh from "./Meh";
-import Mostach from "./Mostach";
+import {
+  ApatheticMouth,
+  Bread1,
+  Bread3,
+  Confused,
+  Happt,
+  LongBread,
+  Meh,
+  Mostach,
+} from "@components";
 
 const MouthCollection = [
   { name: "apatheticMouth", component: ApatheticMouth },

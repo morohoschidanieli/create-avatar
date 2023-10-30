@@ -1,0 +1,12 @@
+export { default as Beanie } from "./Beanie";
+export { default as Buckets } from "./Buckets";
+export { default as Cap } from "./Cap";
+export { default as CurlyHair } from "./CurlyHair";
+export { default as CurlyHairSecond } from "./CurlyHairSecond";
+export { default as Hair } from "./Hair";
+export { default as LongHair } from "./LongHair";
+export { default as LongHairBeanie } from "./LongHairBeanie";
+export { default as MediumHair } from "./MediumHair";
+export { default as MediumHairCap } from "./MediumHairCap";
+export { default as Mohawk } from "./Mohawk";
+export { default as HeadCollection } from "./HeadCollection";

@@ -1,10 +1,8 @@
-/* React */
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-/* App */
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import App from "./App.tsx";
 
+// @ts-ignore
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />

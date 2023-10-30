@@ -11,6 +11,7 @@ export interface AvatarPropsInterface {
 
 export interface AvatarPartProps {
   type: string;
+  fillColor?: string;
 }
 
 export interface AvatarValues {
@@ -40,6 +41,7 @@ export interface AvatarValues {
 
 export interface AvatarProps {
   style?: React.CSSProperties;
+  fillColor?: string;
 }
 
 export interface SkinProps extends AvatarProps {
