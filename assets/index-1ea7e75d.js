@@ -1033,7 +1033,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         src: url(${TQ}) format('tff');
     }
 
-    body {
+    html,body {
+        display: flex;
         width:100vw;
         height:100%;
         margin: 0;
@@ -1058,5 +1059,6 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   display: flex;
   flex-direction: row;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
+  min-height: 100%;
 `,OQ={primary:"#00bcd4",secondary:"#f3f3f3",border:"#e0e0e0",text:"#fff",background:"linear-gradient(36deg, rgba(0,0,0,1) 0%, rgba(32,45,57,1) 32%, rgba(32,45,57,1) 63%, rgba(0,0,0,1) 100%)",indicator:"#FFCC00"},NQ={primary:"#003366",secondary:"#eee",border:"#878787",text:"#000",background:"#fff",indicator:"#ccc"},Ws={fontSize:{xs:"12px",sm:"14px",md:"16px",lg:"18px"},padding:{xs:"12px",sm:"14px",md:"16px",lg:"18px"},borderRadius:{small:"5px",medium:"10px",large:"15px",circle:"50%"}},RQ={dark:{...Ws,color:OQ},light:{...Ws,color:NQ}};function _Q(){const[A,e]=YA.useState("dark"),[t,r]=YA.useState(Ew);return console.log(e),l.jsxs(PC,{theme:RQ[A],children:[l.jsx(KQ,{}),l.jsx(K6.Provider,{value:[t,r],children:l.jsxs(DQ,{children:[l.jsx(Lv,{}),l.jsx(Xv,{})]})})]})}Pf.createRoot(document.getElementById("root")).render(l.jsx(YA.StrictMode,{children:l.jsx(_Q,{})}));
