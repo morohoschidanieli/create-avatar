@@ -1050,8 +1050,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   padding: 20px;
   cursor: pointer;
 
-  &:hover {
-    background-color: ${A.color.shapeColorActive};
+  @media (min-width: 850px) {
+    &:hover {
+      background-color: ${A.color.shapeColorActive};
+    }
   }
 `),$s=z.h4`
   margin-bottom: 0;
