@@ -17,7 +17,8 @@ export const ColorWrapper = styled.div`
   cursor: pointer;
 `;
 
-export const CenterColor = styled.div<ColorProps>`
+export const CenterColor = styled.div<ColorProps>(
+  ({ theme, selected, color }) => `
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,10 +26,11 @@ export const CenterColor = styled.div<ColorProps>`
   height: 35px;
   width: 35px;
   transition: all 0.2s;
-  box-shadow: ${(props) =>
-    props.selected
-      ? `inset 0px 0px 0px 4px rgba(${extractRgbFromHex(props.color)}, 0.4)`
-      : "gray"};
+  box-shadow: ${
+    selected
+      ? `inset 0px 0px 0px 4px rgba(${extractRgbFromHex(color)}, 0.4)`
+      : "gray"
+  };
 
   &:before {
     display: block;
@@ -36,10 +38,10 @@ export const CenterColor = styled.div<ColorProps>`
     width: 18px;
     height: 18px;
 
-    background-color: ${(props) => (props.color ? props.color : "gray")};
-    border: 4px solid #1d2227;
-    box-shadow: ${(props) =>
-      props.selected ? "inset 0px 0px 0px 3px " + props.color : "gray"};
+    background-color: ${color ? color : "gray"};
+    border: 4px solid ${theme.color.border};
+    box-shadow: ${selected ? "inset 0px 0px 0px 3px " + color : "gray"};
     border-radius: 50%;
   }
-`;
+`
+);

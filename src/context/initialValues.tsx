@@ -4,8 +4,8 @@ import {
   SKIN_DEFAULT_COLOR,
 } from "@constants";
 import { AvatarValues } from "@interfaces/avatar";
-import { EyeType } from "@interfaces/eye";
-import { MouthType } from "@interfaces/mouth";
+import { EyeType } from "types/eye";
+import { MouthType } from "types/mouth";
 
 const avatarDataInitialValue: AvatarValues = {
   wrapperShape: "circle",
@@ -27,7 +27,6 @@ const avatarDataInitialValue: AvatarValues = {
     },
     clothes: {
       shape: "hoodie",
-      color: "#00ff00",
     },
   },
 };

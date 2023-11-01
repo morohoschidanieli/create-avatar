@@ -1,5 +1,5 @@
-import { EyeType } from "./eye";
-import { MouthType } from "./mouth";
+import { EyeType } from "../types/eye";
+import { MouthType } from "../types/mouth";
 
 export interface AvatarPropsInterface {
   head: string;
@@ -34,7 +34,6 @@ export interface AvatarValues {
     };
     clothes: {
       shape: string;
-      color: string;
     };
   };
 }

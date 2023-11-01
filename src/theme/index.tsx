@@ -1,19 +1,28 @@
 const darktheme = {
-  primary: "#00bcd4",
-  secondary: "#f3f3f3",
-  border: "#e0e0e0",
+  primary: "rgba(164, 178, 193, 0.15)",
+  secondary: "rgba(164, 178, 193, 0.15)",
+  shapeColor: "#2c323a",
+  shapeColorActive: "#44484c",
+  border: "#1d2227",
   text: "#fff",
+  sidebarButtonColor: "#ffffff",
+  sidebarBackgroundColorMobile: "#1f2329",
   background:
     "linear-gradient(36deg, rgba(0,0,0,1) 0%, rgba(32,45,57,1) 32%, rgba(32,45,57,1) 63%, rgba(0,0,0,1) 100%)",
   indicator: "#FFCC00",
 };
 
 const lightTheme = {
-  primary: "#003366",
-  secondary: "#eee",
+  primary: "rgba(150, 170, 190, 1)",
+  secondary: "#ffffff",
+  shapeColor: "#f4e3d7",
+  shapeColorActive: "rgba(150, 170, 190, 1)",
   border: "#878787",
-  text: "#000",
-  background: "#fff",
+  text: "#44484c",
+  sidebarButtonColor: "rgba(150, 170, 190, 1)",
+  sidebarBackgroundColorMobile: "rgb(255,247,235,1)",
+  background:
+    "linear-gradient(36deg, rgba(255,247,235,1) 0%, rgba(245,232,215,1) 32%, rgba(245,232,215,1) 63%, rgba(255,247,235,1) 100%)",
   indicator: "#ccc",
 };
 
@@ -42,8 +51,9 @@ const theme = {
   dark: {
     ...defaultTheme,
     color: darktheme,
+    changeThemeIcon: "🌕",
   },
-  light: { ...defaultTheme, color: lightTheme },
+  light: { ...defaultTheme, color: lightTheme, changeThemeIcon: "🌑" },
 };
 
 export default theme;

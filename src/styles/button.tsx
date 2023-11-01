@@ -1,6 +1,8 @@
+import { breakpoints } from "@constants";
 import { styled } from "styled-components";
 
-export const Button = styled.button`
+export const Button = styled.button(
+  ({ theme }) => `
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,15 +12,18 @@ export const Button = styled.button`
   border-radius: 50%;
   margin: 0px 10px;
   border: none;
-  background-color: rgba(164, 178, 193, 0.15);
+  background-color: ${theme.color.primary};
   color: white;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.4s;
 
-  &:hover {
-    transform: scale(1.1);
-    background-color: white;
-    color: #374250;
+  @media (min-width: ${breakpoints.mobile}) {
+    &:hover {
+      transform: scale(1.1);
+      background-color: white;
+      color: #374250;
+    }
   }
-`;
+`
+);

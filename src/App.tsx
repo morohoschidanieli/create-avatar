@@ -1,9 +1,9 @@
 import * as React from "react";
 import { useState } from "react";
 import { ThemeProvider } from "styled-components";
-import { Avatar, Sidebar } from "@components";
+import { Avatar, Sidebar } from "@ui";
 import { AvatarContext, avatarDataInitialValue } from "@context";
-import { Theme } from "@interfaces/theme";
+import { Theme } from "types/theme";
 import { AvatarValues } from "@interfaces/avatar";
 import GlobalStyle from "@styles/globalStyles";
 import { AppLayout } from "@styles/app";
@@ -14,18 +14,18 @@ function App() {
   const [avatarData, setAvatarData] = useState<AvatarValues>(
     avatarDataInitialValue
   );
-  console.log(setCurrentTheme);
-  // const changeTheme = () => {
-  //   setCurrentTheme(currentTheme === "light" ? "dark" : "light");
-  // };
+
+  const selectThemeHandler = () => {
+    if (currentTheme === "light") setCurrentTheme("dark");
+    else setCurrentTheme("light");
+  };
 
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
       <AvatarContext.Provider value={[avatarData, setAvatarData]}>
         <AppLayout>
-          {/* <Code /> */}
-          <Avatar />
+          <Avatar onSelectTheme={selectThemeHandler} />
           <Sidebar />
         </AppLayout>
       </AvatarContext.Provider>

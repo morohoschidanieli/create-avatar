@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { breakpoints } from "@constants";
 
 interface AvatarWrapperProps {
   wrappershape: "circle" | "rounded" | "square";
@@ -22,6 +23,15 @@ interface AvatarWrapperProps {
     | "#FF9FD9";
 }
 
+export const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+`;
+
 export const AvatarWrapper = styled.div<AvatarWrapperProps>`
   position: relative;
   display: flex;
@@ -42,6 +52,11 @@ export const AvatarWrapper = styled.div<AvatarWrapperProps>`
   height: 360px;
   width: 360px;
   overflow: hidden;
+
+  @media screen and (max-width: ${breakpoints.mobile}) {
+    height: 300px;
+    width: 300px;
+  }
 `;
 
 export const AvatarLayout = styled.div`
@@ -49,24 +64,32 @@ export const AvatarLayout = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
   height: 100%;
 `;
 
 export const AvatarPart = styled.svg`
   position: absolute;
+  width: 360;
+  height: 360;
+
+  @media screen and (max-width: ${breakpoints.mobile}) {
+    height: 300px;
+    width: 300px;
+  }
 `;
 
-export const AvatarActions = styled.div`
+export const AvatarActions = styled.div(
+  ({ theme }) => `
   border-radius: 30px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: auto;
+  width: 200px;
   height: auto;
   margin: 50px 0;
   padding: 10px;
   color: white;
-  background-color: rgba(164, 178, 193, 0.15);
-`;
+  background-color: ${theme.color.primary};
+`
+);

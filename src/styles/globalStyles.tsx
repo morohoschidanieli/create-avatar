@@ -7,9 +7,10 @@ const GlobalStyle = createGlobalStyle`
         src: url(${Rubik}) format('tff');
     }
 
-    body {
+    html,body {
+        display: flex;
         width:100vw;
-        height:100vh;
+        height:100%;
         margin: 0;
         padding: 0;
         font-family: 'Rubik', sans-serif;

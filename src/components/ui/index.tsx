@@ -1,0 +1,9 @@
+export { default as Clothes } from "./Clothes";
+export { default as Eyes } from "./Eyes";
+export { default as Head } from "./Head";
+export { default as Mouth } from "./Mouth";
+export { default as Skin } from "./Skin";
+export { default as Avatar } from "./Avatar";
+export { default as Color } from "./Color";
+export { default as Sidebar } from "./Sidebar";
+export { default as SidebarItem } from "./SidebarItem";
