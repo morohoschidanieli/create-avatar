@@ -1,34 +1,50 @@
-# Avatar Generator Project
+# Color Avatar Web Page
 
-![Generated Avatars](images/avatar_samples.png)
+This web page allows you to create personalized avatars using SVGs designed by [Francisco Antonio Vázquez Olivares](https://www.figma.com/@pacovqzz).
 
-This project provides a simple avatar generator that uses SVG components to create unique avatars. It's a fun and creative way to generate avatars for user profiles, chat applications, and more.
+![Desktop Dark Mode Screenshot](docs/images/desktop_dark_mode.png)
+![Desktop Light Mode Screenshot](docs/images/desktop_light_mode.png)
+![Desktop Menu Dark Mode Screenshot](docs/images/desktop_menu_dark_mode.png)
+![Desktop Menu Light Mode Screenshot](docs/images/desktop_menu_light_mode.png)
+![Mobile Dark Mode Screenshot](docs/images/mobile_dark_mode.png)
+![Mobile Light Mode Screenshot](docs/images/mobile_light_mode.png)
+![Mobile Menu Dark Mode Screenshot](docs/images/mobile_menu_dark_mode.png)
+![Mobile Menu Light Mode Screenshot](docs/images/mobile_menu_light_mode.png)
 
-## Table of Contents
+## Features
 
-- [Getting Started](#getting-started)
-  - [Installation](#installation)
-  - [Usage](#usage)
-- [SVG Components](#svg-components)
-  - [Circle Component](#circle-component)
-  - [Rectangle Component](#rectangle-component)
-  - [Triangle Component](#triangle-component)
-- [Designer](#designer)
-- [License](#license)
+- **Customizable Avatars:** You can create avatars using a variety of SVG shapes and elements designed by [Francisco Antonio Vázquez Olivares](https://www.figma.com/@pacovqzz).
+
+- **Dark Mode and Light Mode:** The web page supports both dark and light mode to match your preference.
+
+- **Shape Options:** Choose from different shapes for your avatars, including rounded, square, and square with rounded corners.
+
+- **Responsive Design:** The page is fully responsive and can be accessed from various devices and screen sizes.
+
+## Technology Stack
+
+- Built with **React:** The web page is developed using the React JavaScript library, providing a dynamic and interactive user experience.
+
+- **Styled Components:** CSS-in-JS is achieved using Styled Components, allowing for easy styling and theming of the components.
+
+- Written in **TypeScript:** The codebase is written in TypeScript, ensuring a strongly typed and maintainable application.
 
 ## Getting Started
 
-### Installation
+1. Visit the web page at [https://morohoschidanieli.github.io/create-avatar/](https://morohoschidanieli.github.io/create-avatar/).
 
-To use the avatar generator, follow these steps:
+2. Explore the available options for shape, mode, and customization.
 
-1. Clone the repository: `git clone https://github.com/morohoschidanieli/create-avatar.git`
-2. Navigate to the project directory: `cd create-avatar`
-3. Install dependencies: `npm install`
+3. Click the "Random" button to create your personalized avatar.
 
-### Usage
+## Credits
 
-After installing the dependencies, you can generate avatars with the following command:
+- The SVG elements used for avatar creation were designed by [Francisco Antonio Vázquez Olivares](https://www.figma.com/@pacovqzz).
 
-```bash
-npm run dev
+## Feedback and Support
+
+If you encounter any issues or have suggestions for improvement, please [submit an issue](https://github.com/morohoschidanieli/create-avatar/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). See the [LICENSE](LICENSE) file for details.
