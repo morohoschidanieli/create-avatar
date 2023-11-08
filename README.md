@@ -2,14 +2,12 @@
 
 This web page allows you to create personalized avatars using SVGs designed by [Francisco Antonio Vázquez Olivares](https://www.figma.com/@pacovqzz).
 
-![Desktop Dark Mode Screenshot](docs/images/desktop_dark_mode.png)
-![Desktop Light Mode Screenshot](docs/images/desktop_light_mode.png)
-![Desktop Menu Dark Mode Screenshot](docs/images/desktop_menu_dark_mode.png)
-![Desktop Menu Light Mode Screenshot](docs/images/desktop_menu_light_mode.png)
-![Mobile Dark Mode Screenshot](docs/images/mobile_dark_mode.png)
-![Mobile Light Mode Screenshot](docs/images/mobile_light_mode.png)
-![Mobile Menu Dark Mode Screenshot](docs/images/mobile_menu_dark_mode.png)
-![Mobile Menu Light Mode Screenshot](docs/images/mobile_menu_light_mode.png)
+| Dark Mode                                                                    | Light Mode                                                                     |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| ![Desktop Dark Mode Screenshot](docs/images/desktop_dark_mode.png)           | ![Desktop Light Mode Screenshot](docs/images/desktop_light_mode.png)           |
+| ![Desktop Menu Dark Mode Screenshot](docs/images/desktop_menu_dark_mode.png) | ![Desktop Menu Light Mode Screenshot](docs/images/desktop_menu_light_mode.png) |
+| ![Mobile Dark Mode Screenshot](docs/images/mobile_dark_mode.png)             | ![Mobile Light Mode Screenshot](docs/images/mobile_light_mode.png)             |
+| ![Mobile Menu Dark Mode Screenshot](docs/images/mobile_menu_dark_mode.png)   | ![Mobile Menu Light Mode Screenshot](docs/images/mobile_menu_light_mode.png)   |
 
 ## Features
 
