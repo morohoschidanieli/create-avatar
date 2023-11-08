@@ -25,8 +25,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { backgroundColors, faceColors, headColors } from "@styles/colors";
 import { Footer, FooterLink } from "@styles/footer";
-import { ChangeThemeButton, Header } from "@styles/header";
+import { ChangeThemeButton, GithubButton, Header } from "@styles/header";
 import { ThemeContext } from "styled-components";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export interface AvatarProps {
   onSelectTheme: (event: any) => void;
@@ -114,6 +115,13 @@ const Avatar = ({ onSelectTheme }: AvatarProps) => {
         <ChangeThemeButton title="Change theme" onClick={onSelectTheme}>
           {(themeContext as any).changeThemeIcon}
         </ChangeThemeButton>
+        <GithubButton
+          title="GitHub"
+          target="__blank"
+          href="https://github.com/morohoschidanieli/create-avatar"
+        >
+          <FontAwesomeIcon icon={faGithub} /> GitHub
+        </GithubButton>
       </Header>
       <AvatarLayout>
         <AvatarWrapper
